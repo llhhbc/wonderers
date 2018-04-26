@@ -1,11 +1,13 @@
-baseurl = "https://www.example.com/"
+baseurl = "https://llhhbc.github.io/wonder/"
 languageCode = "zh-CN"
+DefaultContentLanguage="zh-CN"
 title = "wonder of light"
 theme = "blackburn"
 author = "llh"
 copyright = "&copy; 2016. All rights reserved."
 canonifyurls = true
 paginate = 10
+format="toml"
 
 [indexes]
   tag = "tags"
@@ -19,7 +21,7 @@ paginate = 10
   disqus = "wonder of llh"
   # CSS name for highlight.js
   highlightjs = "androidstudio"
-  dateFormat = "2006-01-02, 15:04"
+  dateFormat = "2006-01-02"
 
 [menu]
   # Shown in the side menu.
