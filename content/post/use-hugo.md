@@ -1,4 +1,3 @@
-
 +++
 title = "use hugo"
 description = " my use hugo"
@@ -14,8 +13,8 @@ categories = [
     "golang",
     "hugo",
 ]
+esid="GSsjgGMB-LOJRgD48XTC"
 +++
-
 #### hugo的安装
 ```
 go get github.com/gohugoio/hugo

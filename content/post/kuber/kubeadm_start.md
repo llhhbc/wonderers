@@ -1,4 +1,3 @@
-
 +++
 title = "kuberadm start"
 description = "开源项目收集整理"
@@ -10,9 +9,8 @@ date = "2018-04-26T10:46:49+08:00"
 categories = [
     "kubernetes",
 ]
+esid="GysjgGMB-LOJRgD48nR8"
 +++
-
-
 kubernetes搭建比较复杂，所以选择先用kubeadm全自动来先试试手（奈何墙有点高，所以加了些插曲）
 
 

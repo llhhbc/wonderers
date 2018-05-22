@@ -1,4 +1,3 @@
-
 +++
 title = "kube问题汇总"
 description = "kuber部署问题汇总"
@@ -9,8 +8,8 @@ date = "2018-04-26T10:46:49+08:00"
 categories = [
     "kubernetes",
 ]
+esid="GisjgGMB-LOJRgD48nQe"
 +++
-
 
 1. 虚拟机建议用virutalbox
 
@@ -36,3 +35,4 @@ Unable to authenticate the request due to an error: x509: certificate has expire
 
 	配置文件bootstrap.kubeconfig中token不一致，会导致这个错
 	failed to run Kubelet: cannot create certificate signing request: Unauthorized
+
