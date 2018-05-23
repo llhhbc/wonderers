@@ -1,8 +1,8 @@
 +++
-title = "tensorFlow入门"
-description = "tensorFlow入门"
+title = "python 简单使用"
+description = "python 简单使用"
 tags = [
-    "tensorflow"
+    "python"
 ]
 date = "2018-05-11T20:02:28+08:00"
 categories = [
