@@ -1,7 +1,7 @@
 baseurl = "http://wonder.zxcsoft.com/"
 languageCode = "zh-CN"
 DefaultContentLanguage="zh-CN"
-title = "wonder of light"
+title = "miracle of light"
 theme = "blackburn"
 author = "llh"
 copyright = "&copy; 2016. All rights reserved."
@@ -15,10 +15,10 @@ format="toml"
 
 [params]
   # Shown in the home page
-  subtitle = "wonder"
-  brand = "wonder"
+  subtitle = "It's a dream and also a miracle!"
+  brand = "miracle"
   googleAnalytics = ""
-  disqus = "wonder of llh"
+  disqus = "llh"
   # CSS name for highlight.js
   highlightjs = "androidstudio"
   dateFormat = "2006-01-02"
