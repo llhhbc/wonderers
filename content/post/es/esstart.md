@@ -28,6 +28,7 @@ curl http://127.0.0.1:9200
 ```
 ### 安装中文分词
 > 参考 https://github.com/medcl/elasticsearch-analysis-ik
+
 > ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.2.4/elasticsearch-analysis-ik-6.2.4.zip
 
 

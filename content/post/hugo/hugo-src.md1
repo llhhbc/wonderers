@@ -1,0 +1,123 @@
++++
+title = "hugo源码分析"
+description = "hugo源码分析"
+tags = [
+    "go",
+    "golang",
+    "hugo",
+    "development",
+]
+date = "2018-04-25T12:02:28+08:00"
+categories = [
+    "Development",
+    "golang",
+    "hugo",
+]
++++
+
+## hugo源码分析
+
+### 1. hugo命令分析
+
+#### 1.命令管理
+
+```
+commandsBuilder 
+    hugoBuilderCommon
+    []comder  //interface  flagsToConfig,getCommand
+
+baseCmd
+  cobra.Command
+
+baseBuilderCmd
+  *baseCmd
+  *commandsBuilder
+
+hugoCmd
+  *baseBuilderCmd
+  c *commandeer  //hugo配置信息
+
+hugoBuilderCommon
+  source string
+  baseURL string
+  buildWatch bool
+  gc bool
+  logging bool
+  verbose bool
+  debug bool
+  quiet bool
+  cfgFile string
+  logFile string
+
+
+	hugoCmd := newCommandsBuilder().addAll().build()
+	cmd := hugoCmd.getCommand()
+	cmd.SetArgs(args)
+	c, err := cmd.ExecuteC()
+```
+*  命令管理分3块：
+* commandsBuilder 用来构建hugoCmd，程序的命令清单都通过addAll来注册，通过build来构建hugoCmd
+  构建配置放在hugoBuilderCommon中 
+* hugoCmd的getCommand来获取cobra.Command，所有的执行都是通过这个来管理的
+* hugoCmd中，运行配置放在commandeer中
+
+### 2.命令分析
+* hugo命令清单如下：
+	* server
+	* version
+	* env
+	* config
+	* check
+	* benchmark
+	* convert
+	* new
+	* list
+	* import
+	* gen
+
+* 程序的入口函数， 是通过cobra.Command 的 RunE: func(cmd *Command, args []string) error 
+
+####  server 启动服务
+```golang
+type serverCmd struct {
+	// Can be used to stop the server. Useful in tests
+	stop <-chan bool
+
+	disableLiveReload bool
+	navigateToChanged bool
+	renderToDisk      bool
+	serverAppend      bool
+	serverInterface   string
+	serverPort        int
+	liveReloadPort    int
+	serverWatch       bool
+	noHTTPCache       bool
+
+	disableFastRender bool
+
+	*baseBuilderCmd
+}
+```
+> 入口函数： server(cmd *cobra.Command, args []string) error
+	* 1. 定义函数：cfgInit初始化配置（由第3步初始化commmander来调用）：页面是否使用内存、是否开启多端口监听（一个语言一种）、热部署端口
+	* 2.memStats检查内存状态：单独创建一个server协程，如果开启内存状态检查的话，默认100ms输出一次，将检查结果输出 Time HeapSys HeapAlloc HeapIdle HeapReleased
+	* 3. initializeConfig构造并获取一个commandeer对象：
+		* 加载配置：通过viper库来加载配置信息
+		* 创建日志对象
+		* 创建共享存储hugofs
+		* 创建缓存
+
+	* 4.编译站点文件
+		* 复制静态文件
+		* 编译站点文件
+			* 如果站点已经存在，则更新下配置，如果不存在，则创建hugoSite对象
+
+
+	* 5.注册资源类型
+	* 6.文件监听处理：开启监听后，每个目录启动一个监听服务
+	* 7.开启服务：创建fileServer对象，createEndpoint创建处理服务，开始监听
+
+
+
+
+
