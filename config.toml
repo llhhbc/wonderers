@@ -43,5 +43,11 @@ format="toml"
     weight = 3
     identifier = "tags"
     url = "/tags/"
+  [[menu.main]]
+    name = "About"
+    pre = "<i class='fa fa-user fa-fw'></i>"
+    weight = 4
+    identifier = "about"
+    url = "/about/"
 
 [social]

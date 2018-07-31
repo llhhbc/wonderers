@@ -16,6 +16,10 @@ categories = [
 * 关闭swap
 * 作为node的结点，要安装docker（包括master和node共用的）
 
+```sh
+  wget https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-ce-18.06.0.ce-3.el7.x86_64.rpm
+  yum install docker-ce-18.06.0.ce-3.el7.x86_64.rpm
+```
 
 1. 设置主机名
 > sh etc/set_hosts.sh

@@ -114,6 +114,8 @@ kubernetes搭建比较复杂，所以选择先用kubeadm全自动来先试试手
 #### 1.9 安装检查
 * 切换命名空间
 
+        kubectl config use-context default
+
         kubectl config set-context $(kubectl config current-context) --namespace=kube-system
         kubectl config view | grep namespace:
 

@@ -64,4 +64,11 @@ esid="GCsjgGMB-LOJRgD48HRX"
 * es做为存储，d3来展示，完成思维图的整理与知识分析
 * 使用kuber完成思维系统的搭建
 
+# 工具收藏
+
+## linux shell
+on-my-zsh
+spf13-vim
+
+
 
