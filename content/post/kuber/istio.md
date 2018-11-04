@@ -21,7 +21,8 @@ categories = [
 > #如果出现 unable to recognize "install/kubernetes/istio.yaml" 的错误，删除后再重新执行一遍就好了
 
 ### 部署bookinfo
-```shell
+
+```sh
     kubectl apply -f <(istioctl kube-inject -f bookinfo.yaml)
 
     #获取访问地址
@@ -32,7 +33,8 @@ categories = [
 ```
 
 #### 1.1 验证路由访问
-```shell
+
+```sh
     #所有用户都访问v1
     istioctl create -f route-rule-all-v1.yaml
     #jason用户登录访问v2
@@ -130,10 +132,10 @@ categories = [
     istioctl create -f new_telemetry.yaml
 ```
     
-#### 1.2 安装grafana  可视化状态
+#### 1.3 安装grafana  可视化状态
 * 记得先更新系统时间，查询信息是根据时间来看的，否则会因为时间不对而看不到数据
 
-```shell
+```sh
 #修改时区
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 #更新时间

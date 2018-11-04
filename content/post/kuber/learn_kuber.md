@@ -14,6 +14,7 @@ esid="HCsjgGMB-LOJRgD48nT7"
 ### Pod
 Pod是一组容器集合，他们共享IPC、Network 和 UTC namespace
 例：
+
 ```yarm
 apiVersion: v1
 kind: Pod
@@ -38,6 +39,7 @@ spec:
 ### Service
 应用服务的抽象，通过labels为应用提供负载均衡和服务发现。匹配labels为Pod IP和端口列表组成endpoints，由kube-proxy负责将服务IP负载均衡到这些endpoints上。
 每个Service都会自动分配一个culster IP（仅在集群内部可访问的虚拟地址）和DNS名，其它容器可以通过该地址或DNS来访问服务
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -87,5 +89,6 @@ spec:
     ports:
     - containerPort: 80
 ```
+
 
 

@@ -14,23 +14,36 @@ esid="ICsjgGMB-LOJRgD483Su"
 
 #### pyenv搭建
 
-1.安装pyenv
-1.安装pip  virtualenv
-1.创建虚拟环境
-python3 -m venv ./env
-1.切换环境
-. env/bin/activate
+1. 安装pyenv
+1. 安装pip  virtualenv
+1. 创建虚拟环境
+
+	`
+	python3 -m venv ./env
+	`
+
+1. 切换环境
+
+	`
+	. env/bin/activate
+	`
 
 #### conda搭建
-1.安装anaconda3
-1.创建虚拟环境
-`conda create --name py3 python=3`
-1.环境切换
-`source activate py3`
+1. 安装anaconda3
+1. 创建虚拟环境
+
+	`
+	conda create --name py3 python=3
+	`
+1. 环境切换
+
+	`
+	source activate py3
+	`
 
 ## tensorflow安装(下面操作都在python3环境下操作)
 
-```shell
+```sh
 ##我本地环境如下搭建
 # conda create --name mytensor python=3.6
 # source activate mytensor
@@ -42,6 +55,7 @@ pip install tensorlayer
 ```
 
 ### 验证环境安装
+
 ```python
 import tensorflow as tf
 

@@ -1,4 +1,15 @@
 
++++
+title = "oracle问题分析"
+description = "oracle问题分析"
+tags = [
+    "oracle"
+]
+date = "2018-07-26T20:46:49+08:00"
+categories = [
+    "oracle",
+]
++++
 
 
 ## oracle临时表空间满问题

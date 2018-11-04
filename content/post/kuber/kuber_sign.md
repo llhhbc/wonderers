@@ -14,14 +14,14 @@ categories = [
 
 由于在阿里上只有一台，又不准备用minikube，所以单机部署一个
 
-### 安装docker
+### 1.安装docker
 
 ```sh
   wget https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-ce-18.06.0.ce-3.el7.x86_64.rpm
   yum install docker-ce-18.06.0.ce-3.el7.x86_64.rpm
 ```
 
-### 安装etcd
+### 2.安装etcd
 
 * 生成根证书
 
@@ -44,7 +44,7 @@ categories = [
 }
 ```
 
-#### 自动化脚本配置如下
+#### 3.自动化脚本配置如下
 
 ```sh
 #!/bin/zsh
@@ -258,3 +258,19 @@ function start_kube_node() {
 $1
 
 ```
+
+#### 4.安装core dns
+
+```sh
+git clone https://github.com/coredns/deployment.git
+cd deployment/kubernetes
+
+sed 's/CLUSTER_DOMAIN/cluster.local/g;s/CLUSTER_DNS_IP/10.254.0.2/g' coredns.yaml.sed > /tmp/coredns.yaml
+
+kubectl create -f /tmp/coredns.yaml
+
+# 登录任意一个容器，nslookup 服务名，测试dns是否正常
+```
+
+#### 5.安装dashboard
+

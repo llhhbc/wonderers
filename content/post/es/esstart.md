@@ -12,7 +12,8 @@ esid="ISsjgGMB-LOJRgD483Td"
 +++
 ### es安装
 * 官网下载 es https://www.elastic.co/downloads/elasticsearch
-```shell
+
+```sh
 unzip elasticsearch-6.2.4.zip
 cd elasticsearch-6.2.4/config
 
@@ -34,7 +35,8 @@ curl http://127.0.0.1:9200
 
 ### es简单使用
 #### 创建一个index mapping（相当于一个表）
-```shell
+
+```sh
 curl -XPUT 'localhost:9200/wonderbook?pretty' -H 'Content-type:application/json' -d '
 {
 "mappings": {

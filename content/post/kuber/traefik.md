@@ -57,7 +57,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: traefik-ingress-controller
-  namespace: kube-system
+  namespace: default
 ```
 
 * 创建服务
@@ -68,13 +68,13 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: traefik-ingress-controller
-  namespace: kube-system
+  namespace: default
 ---
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
   name: traefik-ingress-controller
-  namespace: kube-system
+  namespace: default
   labels:
     k8s-app: traefik-ingress-lb
 spec:
@@ -107,7 +107,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: traefik-ingress-service
-  namespace: kube-system
+  namespace: default
 spec:
   selector:
     k8s-app: traefik-ingress-lb
@@ -129,7 +129,7 @@ kind: Ingress
 metadata:
   name: wonderng
   ## 命名空间要和traefik一样，否则无法正常工作 
-  namespace: kube-system
+  namespace: default
   annotations:
     traefik.ingress.kubernetes.io/preserve-host: "true"
 spec:
@@ -157,7 +157,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: wonderng
-  namespace: kube-system
+  namespace: default
 spec:
   rules:
   - host: a.wonder

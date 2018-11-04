@@ -17,7 +17,7 @@ categories = [
 ## 源码分析
 > 由于这个是个库，并没有执行程序，看到目录下有main.go，所以就从这个开始
 
-1. main
+### 1. main
 
 > 定义了DB结构：
 
@@ -61,13 +61,13 @@ singularTable  //bool类型，暂时不知道干什么的
     9. search sql语句管理
     10. utils 基本工具类
 
-2. callback
+### 2. callback
 
 > CallbackProcessor中记录了所有回调函数的信息，然后排好序后，分类分别放到各个切片中
 
 > 通过查看回调，我发现，callback中的回调，并不是真的实现的地方，只是将回调分类、排序（还包括一些配置检查），然后通过scope.CallMethod来调用真正的回调实现函数
 
-3. scope
+### 3. scope
 
 > 由于通过callback中可看到，回调在scope中实现，所以转而先看scope, scope中定义了当前操作信息
 
@@ -190,11 +190,11 @@ db.Callback().Create().Before("gorm:create").Register("update_created_at", updat
 
 > 作用域就像一个大的上下文，每个作用域之前，只有db的数据库连接是共用的，其它都是各自独立的。等会看完search，我想再和它比较下。作用域里面，定义的是列、属性、表名、引号等的处理，还有语句的执行、变量的替换、防sql注入。search作为scope的成员，所有的信息在scope这汇聚，然后去完成相应的功能。
 
-4. search
+### 4. search
 
 > search比较简单，它是个信息收集模块，所有的函数调用都会再返回自身，而错误都通过db.AddError来管理。有一点要注意，search的clone，虽然创建的是新的search对象，但里面的切片、指针、map都原样拷贝，是对应的同一个地址，修改的时候是一起生效，只有基本类型（表名）会不同
 
-5. dialet
+### 5. dialet
 
 > dialet针对不同的数据库，对接口做了不同的实现，在打开数据库连接的时候，根据数据库类型做初始化
 
